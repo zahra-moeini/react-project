@@ -1,17 +1,42 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from 'react-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+class Timer extends React.Component{
+  render(){
+    return(
+      <div>
+         <h2>it is {new Date().toLocaleTimeString()}</h2>
+      </div>
+    )
+  }
+}
+
+class Hello extends React.Component{
+  render(){
+    return(
+      <div>
+        <h1>hello frendss</h1>
+      </div>
+    )
+  }
+}
+
+class App extends React.Component{
+  render(){
+    return(
+      <div> 
+          <Hello/>
+         <Timer/>
+      </div>
+    )
+  }
+}
+
+const tick=()=>{
+  ReactDOM.render(<App/>,document.getElementById('root'));
+}
+
+setInterval(()=>{
+  tick();
+},1000)
