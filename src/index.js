@@ -1,42 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from "./App";
+
+import './style.css'
 
 
-class Timer extends React.Component{
-  render(){
-    return(
-      <div>
-         <h2>it is {new Date().toLocaleTimeString()}</h2>
-      </div>
-    )
-  }
-}
 
-class Hello extends React.Component{
-  render(){
-    return(
-      <div>
-        <h1>hello frendss</h1>
-      </div>
-    )
-  }
-}
 
-class App extends React.Component{
-  render(){
-    return(
-      <div> 
-          <Hello/>
-         <Timer/>
-      </div>
-    )
-  }
-}
 
-const tick=()=>{
+
+
+// const tick=()=>{
   ReactDOM.render(<App/>,document.getElementById('root'));
-}
+// }
 
-setInterval(()=>{
-  tick();
-},1000)
+// setInterval(()=>{
+//   tick();
+// },1000)
