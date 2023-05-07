@@ -1,9 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import './style.css';
 import Hello from './Hello';
 import Timer from './Timer';
-import './style.css'
-
 
 class App extends React.Component{
     render(){
