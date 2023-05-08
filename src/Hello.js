@@ -5,10 +5,10 @@ class Hello extends React.Component{
     render(){
       return(
         <div>
-          <h1>hello frendss</h1>
+          <h1 className='hello'>{this.props.title}</h1>
         </div>
       )
     }
   }
-  
-export default Hello;
+
+export default Hello;  
