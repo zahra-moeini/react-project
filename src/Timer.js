@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import './style.css'
+ import './style.css'
 
 var interval;
 class Timer extends React.Component{
@@ -28,12 +27,12 @@ class Timer extends React.Component{
 
 
     render(){
-        console.log("render");
       return(
         <div>
            <h2 className='timer'>
             it is {this.state.time}
             </h2>
+            <button onClick={this.props.handleSetTitle}>change</button>
         </div>
       )
     }
