@@ -87,6 +87,13 @@ class Timer extends React.Component{
               .stopInterval}>stop</span>
               <span className='action_button reset_burtton' onClick={this
               .resetInterval}>reset</span>
+              <span className='action_button reset_burtton' onClick={this.props.handleSetIsLight}
+              style={{background:this.props.isLight ? "black" : "white",
+            color:this.props.isLight?"white":"black"
+            }}
+              >
+                {this.props.isLight?"dark":"light"}
+              </span>
             </div>
         </div>
       )
