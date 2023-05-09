@@ -1,39 +1,36 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './style.css'
 import Hello from './Hello';
 import Timer from './Timer';
+import { useState } from 'react';
+import TimeList from './TimeList'
 
 
+const App=()=>{
+  const [title,setTitle]=useState("hello firends");
+  const [isLight,setIsLight]=useState(false);
+  const [timeArr,setTimeArr]=useState(["00:05:12" ,"00:06:32"]);
+  useEffect(()=>{
+    console.log("useEffect");
+    return()=>{
 
-class App extends React.Component{
-  constructor(){
-    super();
-    this.state={
-      title:"سلام دوستان عزیزم"
     }
-    // this.handleSetTitle=this.handleSetTitle.bind(this)
-  }
+  },[isLight])
 
-  // handleSetTitle(){
-  //   this.setState({
-  //     title:"به کد یاد خوش آمدید"
-  //   })
-  // }
-  handleSetTitle=()=>{
-    this.setState({
-      title:"به کد یاد خوش آمدید"
-    })
+  const handleSetIsLight=()=>{
+    setIsLight(!isLight)
   }
+  return(
+    <div className='main' style={{background:isLight ? "white" : "black"}}>
+      <Hello title={title}/>
+      <Timer isLight={isLight} handleSetIsLight={handleSetIsLight}/>
+      <TimeList>
+        {timeArr}
+      </TimeList>
+    </div>
+  )
+}
 
-    render(){
-      return(
-        <div className='main'> 
-            <Hello title={this.state.title}/>
-           <Timer handleSetTitle={this.handleSetTitle}/>
-        </div>
-      )
-    }
-  }
 
 export  default App;
