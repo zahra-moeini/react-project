@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
  import './style.css'
+import TimeList from './TimeList';
 
 var interval;
 class Timer extends React.Component{
@@ -66,7 +67,13 @@ class Timer extends React.Component{
         secound:0,
       })
     }
-    
+    handleSaveTime=()=>{
+      let h=this.state.hour
+      let m=this.state.minute
+      let s=this.state.secound
+      let newTime=`${`${h >9 ? h:"0"+h} : ${m > 9 ? m:"0"+m} : ${s>9 ? s:"0"+s}`}`
+      this.props.setTimeArr([...this.props.timeArr, newTime])
+    }
   
 
     render(){
@@ -75,7 +82,7 @@ class Timer extends React.Component{
       let s=this.state.secound
       return(
         <div>
-           <h2 className='timer'>
+           <h2 className='timer'onClick={this.handleSaveTime}>
             {/* {this.state.hour +":"+this.state.minute+":"+this.state.secound} */}
             {`${h >9 ? h:"0"+h} : ${m > 9 ? m:"0"+m} : ${s>9 ? s:"0"+s}`}
             </h2>
@@ -95,6 +102,9 @@ class Timer extends React.Component{
                 {this.props.isLight?"dark":"light"}
               </span>
             </div>
+              <TimeList>
+                {this.props.timeArr}
+              </TimeList>
         </div>
       )
     }
