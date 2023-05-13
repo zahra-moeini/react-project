@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
- import './style.css'
+import './style.css'
+import { TestContext } from './testContext';
 import TimeList from './TimeList';
 
 var interval;
@@ -14,14 +15,9 @@ class Timer extends React.Component{
         isStart:false
       }
     }
-    // componentDidMount(){
-    //     console.log("componentDidMount");
-    //     interval=setInterval(()=>{
-    //         this.setState({
-    //           time:this.state.time-1
-    //         })
-    //       },1000)
-    // }
+
+    static contextType= TestContext;
+
     startInterval=()=>{
       if(this.state.isStart==false){
         this.setState({
@@ -46,12 +42,7 @@ class Timer extends React.Component{
         },1000)
       }
     }
-    // componentDidUpdate(){
-    //     if(this.state.time==0){
-    //         clearInterval(interval);
-    //     }
-    // }
-
+ 
     stopInterval=()=>{
       this.setState({
         isStart:false
@@ -72,7 +63,7 @@ class Timer extends React.Component{
       let m=this.state.minute
       let s=this.state.secound
       let newTime=`${`${h >9 ? h:"0"+h} : ${m > 9 ? m:"0"+m} : ${s>9 ? s:"0"+s}`}`
-      this.props.setTimeArr([...this.props.timeArr, newTime])
+      this.context.setTimeArr([...this.context.timeArr, newTime])
     }
   
 
@@ -82,11 +73,9 @@ class Timer extends React.Component{
       let s=this.state.secound
       return(
         <div>
-           <h2 className='timer'onClick={this.handleSaveTime}>
-            {/* {this.state.hour +":"+this.state.minute+":"+this.state.secound} */}
+           <h2 className='timer'onClick={this.handleSaveTime} style={{color:this.context}}> 
             {`${h >9 ? h:"0"+h} : ${m > 9 ? m:"0"+m} : ${s>9 ? s:"0"+s}`}
             </h2>
-            {/* <button onClick={this.props.handleSetTitle}>change</button> */}
             <div className='button_box'>
               <span className='action_button start_burtton' onClick={this
               .startInterval}>start</span>
@@ -103,7 +92,7 @@ class Timer extends React.Component{
               </span>
             </div>
               <TimeList>
-                {this.props.timeArr}
+                {this.context.timeArr}
               </TimeList>
         </div>
       )

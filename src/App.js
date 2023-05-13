@@ -5,6 +5,7 @@ import Hello from './Hello';
 import Timer from './Timer';
 import { useState } from 'react';
 import TimeList from './TimeList'
+import { TestContext } from './testContext';
 
 
 const App=()=>{
@@ -22,14 +23,18 @@ const App=()=>{
     setIsLight(!isLight)
   }
   return(
+    <TestContext.Provider value={{
+      timeArr:timeArr,
+      setTimeArr:setTimeArr
+    }}>
     <div className='main' style={{background:isLight ? "white" : "black"}}>
       <Hello title={title}/>
       <Timer 
-      timeArr={timeArr}
-      setTimeArr={setTimeArr}
+      
       isLight={isLight} handleSetIsLight={handleSetIsLight}/>
       
     </div>
+  </TestContext.Provider>
   )
 }
 
