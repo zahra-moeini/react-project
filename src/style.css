@@ -1,11 +1,8 @@
 body{
     margin: 0;
     padding: 0;
-   
-    
 }
 .main{
-    
     width: 100%;
     height: 100vh;
     display: flex;
@@ -13,61 +10,66 @@ body{
     align-items: center;
     flex-direction: column;
     background: black;
+    color: chocolate;
 }
-
 .timer{
-    text-align: center;
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    box-shadow:0 0 50px white;
+    box-shadow: 0 0 20px rgb(146, 240, 216);
     align-items: center;
     justify-content: center;
     display: flex;
     background: black;
     color: chocolate;
+    transition: all 200ms ease;
+    cursor: pointer;
 }
-.hello{
-    text-align: center;
-    color: chocolate;
+.timer:hover{
+    box-shadow: 0 0 8px rgb(146, 240, 216);
 }
 .button_box{
-    text-align: center;
-    width: 110%;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    cursor: pointer;
-
 }
-.action_button {
-    text-align: center;
-    width: 80px;
-    height: 80px;
+.action_button{
+    display: block;
+    width: 65px;
+    height: 65px;
     border-radius: 50%;
+    background: blanchedalmond;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    color:white;
-   
-}
-.start_burtton{
-    text-align: center;
+    margin: 0 3px;
+    color: #ffffff;
     background-color: green;
+    cursor: pointer;
+    transition: all 200ms ease;
 }
 .stop_burtton{
-    text-align: center;
     background-color: red;
 }
 .reset_burtton{
-    text-align: center;
-    background-color: rgb(237, 237, 9);
-
+    background-color: gray;
 }
-.main_Time_list{
-    /* background-color: red; */
-    width: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    color: chocolate;
+.action_button:hover{
+    box-shadow: 0 0 5px white;
+    letter-spacing: 5px;
+}
+
+.main_time_list{
+    margin-top: 0.5rem;
+}
+
+.time_item{
+    font-family: fantasy;
+    letter-spacing: 3px;
+    padding: 0.3rem 0;
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+.time_item:hover{
+    filter: drop-shadow(0 0 5px orange);
 }
